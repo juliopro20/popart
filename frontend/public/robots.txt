@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://popart-psi.vercel.app/sitemap.xml
