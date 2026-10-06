@@ -115,22 +115,22 @@ export class ShoppingCartComponent {
   async checkoutToMessenger(event: Event) {
     event.preventDefault();
 
-    let message = `🎈 *NEW POPART ORDER BOOKING* 🎈\n\n`;
-    message += `👤 *Client Name:* ${this.fullName}\n`;
-    message += `📞 *Phone:* ${this.phoneNumber}\n`;
-    message += `📅 *Event Date:* ${this.eventDate}\n`;
-    message += `📍 *Delivery Address:* ${this.deliveryAddress}\n\n`;
-    message += `🛍️ *Order Items:*\n`;
+    let message = `🎈 NEW POPART ORDER BOOKING 🎈\n\n`;
+    message += `👤 Client Name: ${this.fullName}\n`;
+    message += `📞 Phone: ${this.phoneNumber}\n`;
+    message += `📅 Event Date: ${this.eventDate}\n`;
+    message += `📍 Delivery Address: ${this.deliveryAddress}\n\n`;
+    message += `🛍️ Order Items:\n`;
 
     this.cartService.items().forEach((item: CartItem, index: number) => {
       const price = item.actionType === 'rent' ? item.product.rentalPrice : item.product.purchasePrice;
-      message += `${index + 1}. *${item.product.title}* (${item.actionType.toUpperCase()})\n`;
+      message += `${index + 1}. ${item.product.title} (${item.actionType.toUpperCase()})\n`;
       message += `   - Quantity: ${item.quantity}\n`;
       message += `   - Price: $${price} each\n`;
       message += `   - Image Ref: ${item.product.imageUrl}\n\n`;
     });
 
-    message += `💰 *Estimated Total:* $${this.cartService.totalPrice()}\n`;
+    message += `💰 Estimated Total: $${this.cartService.totalPrice()}\n`;
     message += `--- Please confirm my order!`;
 
     try {
