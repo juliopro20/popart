@@ -5,7 +5,7 @@ import { Product } from '../../type';
   providedIn: 'root',
 })
 export class ApiService {
-  private url = 'http://localhost:5000/api';
+  private url = 'https://popart.onrender.com';
 
   // Get all products (with optional category filter)
   async getProducts(category?: string): Promise<Product[]> {
